@@ -157,7 +157,7 @@
   }
 
   .card-project {
-    @apply bg-gradient-to-br from-card to-muted/20 border border-border rounded-xl overflow-hidden transition-all duration-500 hover:shadow-dramatic hover:scale-105 hover:border-primary/30 group;
+    @apply bg-gradient-to-br from-card to-muted/20 border border-border rounded-xl overflow-hidden transition-all duration-500 hover:shadow-dramatic hover:scale-105 hover:border-primary/30;
   }
 
   /* Text Effects */
