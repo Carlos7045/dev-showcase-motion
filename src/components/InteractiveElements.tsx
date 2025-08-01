@@ -49,16 +49,17 @@ interface MagneticButtonProps {
 }
 
 export const MagneticButton = forwardRef<HTMLElement, MagneticButtonProps>(
-  ({ children, className, config, disabled, onClick, as = 'button' }, forwardedRef) => {
+  ({ children, className, config, disabled, onClick, as = 'button', ...props }, forwardedRef) => {
     const magneticRef = useMagneticEffect(config, disabled);
     
-    const Component = as;
+    const Component = as as any;
 
     return (
       <Component
         ref={forwardedRef || magneticRef}
         className={cn("cursor-pointer transform-gpu", className)}
         onClick={onClick}
+        {...props}
       >
         {children}
       </Component>

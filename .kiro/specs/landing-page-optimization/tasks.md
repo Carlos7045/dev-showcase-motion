@@ -75,9 +75,12 @@
     - Add smooth morphing animations between states
     - _Requirements: 4.2, 4.4_
 
-- [ ] 4. Create Service-Specific Pages
+- [-] 4. Create Service-Specific Pages
+
 
   - [ ] 4.1 Build desenvolvimento-web service page
+
+
     - Create detailed service page component with hero section
     - Implement interactive project showcase with live demos
     - Add pricing tables and feature comparisons
