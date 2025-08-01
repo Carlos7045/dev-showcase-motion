@@ -52,76 +52,87 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 px-6 relative overflow-hidden">
+    <section 
+      id="services" 
+      className="py-20 px-6 relative overflow-hidden"
+      aria-labelledby="services-heading"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Background Elements */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        {/* Background Elements - Decorative only */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className={`text-section text-gradient mb-6 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+        <header className="text-center mb-16">
+          <h2 
+            id="services-heading"
+            className={`text-section text-gradient mb-6 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+          >
             O Que Eu Faço
           </h2>
           <p className={`text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             Ofereco soluções completas para transformar seus desafios tecnológicos 
             em oportunidades de crescimento e inovação.
           </p>
-        </div>
+        </header>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8" role="list" aria-label="Lista de serviços oferecidos">
           {services.map((service, index) => (
-            <div 
+            <article 
               key={service.title}
               className={`group relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
               style={{ animationDelay: `${400 + index * 200}ms` }}
+              role="listitem"
             >
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              {/* Background Gradient - Decorative only */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} aria-hidden="true" />
               
               {/* Card */}
               <div className="relative bg-gradient-to-br from-card to-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 h-full group-hover:border-primary/40 transition-all duration-500 group-hover:shadow-dramatic">
                 {/* Icon */}
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-primary-foreground" />
+                    <service.icon className="w-8 h-8 text-primary-foreground" aria-hidden="true" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-card-foreground mb-4 group-hover:text-gradient transition-all duration-300">
-                  {service.title}
-                </h3>
+                <header>
+                  <h3 className="text-2xl font-bold text-card-foreground mb-4 group-hover:text-gradient transition-all duration-300">
+                    {service.title}
+                  </h3>
+                </header>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <div className="space-y-3">
+                <ul className="space-y-3" role="list" aria-label={`Características do serviço ${service.title}`}>
                   {service.features.map((feature, featureIndex) => (
-                    <div 
+                    <li 
                       key={feature}
                       className="flex items-center gap-3 text-sm text-card-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       style={{ transitionDelay: `${featureIndex * 100}ms` }}
+                      role="listitem"
                     >
-                      <div className="w-2 h-2 bg-primary rounded-full" />
+                      <div className="w-2 h-2 bg-primary rounded-full" aria-hidden="true" />
                       <span>{feature}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                {/* Hover Arrow */}
-                <div className="absolute bottom-8 right-8 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2">
+                {/* Hover Arrow - Decorative only */}
+                <div className="absolute bottom-8 right-8 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2" aria-hidden="true">
                   <div className="w-4 h-4 border-r-2 border-t-2 border-primary transform rotate-45" />
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '1200ms' }}>
+        <aside className={`text-center mt-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '1200ms' }}>
           <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gradient mb-4">
               Pronto para Transformar Sua Ideia?
@@ -129,11 +140,15 @@ const ServicesSection = () => {
             <p className="text-muted-foreground mb-6">
               Vamos conversar sobre como posso ajudar você a alcançar seus objetivos com tecnologia.
             </p>
-            <button className="btn-accent hover:scale-105 transition-transform duration-300">
+            <button 
+              className="btn-accent hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              aria-label="Agendar conversa sobre projeto"
+              type="button"
+            >
               Agendar Conversa
             </button>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   );
