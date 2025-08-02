@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
-import ContactSection from '@/components/ContactSection';
+import ContactSectionSimple from '@/components/ContactSectionSimple';
 import Footer from '@/components/Footer';
 import ScrollTechLogos from '@/components/ScrollTechLogos';
 
@@ -26,7 +26,7 @@ const Index = () => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
       const parallaxElements = document.querySelectorAll('[data-parallax]');
-      
+
       parallaxElements.forEach((element) => {
         const speed = parseFloat(element.getAttribute('data-parallax') || '0.5');
         const yPos = -(scrolled * speed);
@@ -48,7 +48,7 @@ const Index = () => {
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />
-      <ContactSection />
+      <ContactSectionSimple />
       <Footer />
     </div>
   );

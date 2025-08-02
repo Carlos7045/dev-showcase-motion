@@ -16,11 +16,15 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6 relative overflow-hidden">
+    <section 
+      id="about" 
+      className="py-20 px-6 relative overflow-hidden"
+      aria-labelledby="about-heading"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Background Elements */}
-        <div className="absolute top-10 right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-60 h-60 bg-accent/5 rounded-full blur-3xl" />
+        {/* Background Elements - Decorative only */}
+        <div className="absolute top-10 right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-20 left-10 w-60 h-60 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Avatar Side */}
@@ -124,41 +128,48 @@ const AboutSection = () => {
             </div>
 
             {/* Technologies */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">Tecnologias Dominadas</h3>
-              <div className="grid md:grid-cols-3 gap-6">
+            <section className="mb-12" aria-labelledby="technologies-heading">
+              <h3 id="technologies-heading" className="text-2xl font-semibold mb-6 text-foreground">Tecnologias Dominadas</h3>
+              <div className="grid md:grid-cols-3 gap-6" role="list">
                 {technologies.map((tech, index) => (
                   <div
                     key={tech.name}
                     className="card-premium group"
                   >
-                    <tech.icon className="w-8 h-8 text-primary mb-4 group-hover:text-accent transition-colors duration-300" />
+                    <tech.icon 
+                      className="w-8 h-8 text-primary mb-4 group-hover:text-accent transition-colors duration-300" 
+                      aria-hidden="true"
+                    />
                     <h4 className="font-semibold mb-3 text-card-foreground">{tech.name}</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <ul className="flex flex-wrap gap-2" role="list" aria-label={`Tecnologias de ${tech.name}`}>
                       {tech.skills.map((skill) => (
                         <span
                           key={skill}
                           className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-md border border-primary/20"
+                          role="listitem"
                         >
                           {skill}
                         </span>
                       ))}
-                    </div>
-                  </div>
+                    </ul>
+                  </article>
                 ))}
               </div>
-            </div>
+            </section>
 
             {/* Soft Skills */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">Diferenciais</h3>
-              <div className="space-y-4">
+            <section aria-labelledby="skills-heading">
+              <h3 id="skills-heading" className="text-2xl font-semibold mb-6 text-foreground">Diferenciais</h3>
+              <div className="space-y-4" role="list">
                 {softSkills.map((skill, index) => (
                   <div
                     key={skill.title}
                     className="flex items-start gap-4 p-4 rounded-xl bg-card/30 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:bg-card/50"
                   >
-                    <skill.icon className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                    <skill.icon 
+                      className="w-6 h-6 text-primary mt-1 flex-shrink-0" 
+                      aria-hidden="true"
+                    />
                     <div>
                       <h4 className="font-semibold text-card-foreground mb-1">{skill.title}</h4>
                       <p className="text-sm text-muted-foreground">{skill.description}</p>
@@ -166,7 +177,7 @@ const AboutSection = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>

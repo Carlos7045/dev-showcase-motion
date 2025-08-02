@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Download, ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { HeroImage, useImagePreload } from '@/components/OptimizedImage';
 import heroBg from '@/assets/hero-bg.jpg';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  
+  // Preload da imagem hero para melhor performance
+  useImagePreload(heroBg, true);
   
   const texts = [
     'Desenvolvedor Full-Stack',
@@ -44,17 +48,23 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      role="banner"
+      aria-label="Seção principal do site"
+    >
       {/* Background with Parallax Effect */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
+      <div className="absolute inset-0 z-0">
+        <HeroImage
+          src={heroBg}
+          alt="Imagem de fundo com tema tecnológico"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ backgroundAttachment: 'fixed' }}
+          priority={true}
+          quality={85}
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-primary/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
@@ -73,7 +83,12 @@ const HeroSection = () => {
             <span className="block mt-4">Soluções Digitais</span>
           </h1>
           
-          <div className="h-16 flex items-center justify-center mb-8">
+          <div 
+            className="h-16 flex items-center justify-center mb-8"
+            role="text"
+            aria-live="polite"
+            aria-label="Especialidades em rotação"
+          >
             <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground">
               {displayText}
               <span className="border-r-2 border-primary ml-1 inline-block h-8 opacity-80" />
@@ -91,7 +106,7 @@ const HeroSection = () => {
               onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
             >
               <span className="mr-2">Vamos Conversar</span>
-              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Button>
             
             <Button 
@@ -114,24 +129,28 @@ const HeroSection = () => {
                 key={tech}
                 className="px-4 py-2 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-full text-sm font-medium text-card-foreground hover:border-primary/40 transition-colors duration-300"
                 style={{ animationDelay: `${600 + index * 100}ms` }}
+                role="listitem"
               >
                 {tech}
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Scroll Indicator */}
       <div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform duration-300"
         onClick={scrollToNext}
+        aria-label="Rolar para a próxima seção"
+        type="button"
       >
         <div className="scroll-indicator">
           <div className="scroll-dot" />
         </div>
         <p className="text-sm text-muted-foreground mt-2">Scroll para descobrir</p>
-      </div>
+        <ChevronDown className="w-4 h-4 mx-auto mt-1 text-primary" aria-hidden="true" />
+      </button>
     </section>
   );
 };

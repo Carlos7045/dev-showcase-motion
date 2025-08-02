@@ -1,8 +1,10 @@
 import { Mail, MessageCircle, Send, MapPin, Phone, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { AnimatedSection, StaggeredList } from '@/components/AnimatedSection';
+import { TiltCard, MagneticButton } from '@/components/InteractiveElements';
+import { defaultAnimations } from '@/config/animations';
 
 const ContactSection = () => {
-
   const contactMethods = [
     {
       icon: MessageCircle,
@@ -65,7 +67,18 @@ const ContactSection = () => {
               seus desafios e criar soluções que superem suas expectativas.
             </p>
 
-            <div className="space-y-6 mb-8">
+            <AnimatedSection animation={{ ...defaultAnimations.fadeIn, delay: 0.2 }}>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                Cada grande projeto começa com uma conversa. Estou aqui para entender
+                seus desafios e criar soluções que superem suas expectativas.
+              </p>
+            </AnimatedSection>
+
+            <StaggeredList
+              animation={{ ...defaultAnimations.slideLeft, delay: 0 }}
+              staggerDelay={0.1}
+              className="space-y-6 mb-8"
+            >
               <div className="flex items-center gap-4 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
                 <span>Araguaina, Brasil (Atendimento Global)</span>
@@ -78,23 +91,28 @@ const ContactSection = () => {
                 <Send className="w-5 h-5 text-primary" />
                 <span>Resposta em até 24 horas</span>
               </div>
-            </div>
+            </StaggeredList>
 
             {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
+            <StaggeredList
+              animation={{ ...defaultAnimations.scaleIn, delay: 0 }}
+              staggerDelay={0.1}
+              className="flex gap-4"
+            >
+              {socialLinks.map((social) => (
+                <MagneticButton
                   key={social.label}
+                  as="a"
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-card/50 border border-primary/20 rounded-xl flex items-center justify-center hover:border-primary/40 hover:bg-card transition-all duration-300 hover:scale-110"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 text-primary" />
-                </a>
+                  <social.icon className="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300" />
+                </MagneticButton>
               ))}
-            </div>
+            </StaggeredList>
           </div>
 
           {/* Right Side - Contact Methods */}
@@ -124,15 +142,18 @@ const ContactSection = () => {
                         <h3 className="text-xl font-bold text-card-foreground mb-1 group-hover:text-gradient transition-all duration-300">
                           {method.title}
                         </h3>
-                        <p className="text-muted-foreground mb-2">{method.subtitle}</p>
-                        <span className="text-primary font-medium group-hover:text-accent transition-colors duration-300">
-                          {method.action} →
+                        <p className="text-muted-foreground mb-2 transition-colors duration-300">
+                          {method.subtitle}
+                        </p>
+                        <span className="text-primary font-medium group-hover:text-accent transition-colors duration-300 inline-flex items-center gap-2">
+                          {method.action}
+                          <div className="w-4 h-4 border-r-2 border-t-2 border-current transform rotate-45 transition-transform duration-300 group-hover:translate-x-1" />
                         </span>
                       </div>
 
-                      {/* Hover Arrow */}
-                      <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2">
-                        <div className="w-4 h-4 border-r-2 border-t-2 border-primary transform rotate-45" />
+                      {/* Hover Indicator */}
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-primary/20">
+                        <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
                       </div>
                     </div>
                   </div>

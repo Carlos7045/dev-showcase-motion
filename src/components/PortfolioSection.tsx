@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ContentImage } from '@/components/OptimizedImage';
+import { LazyLoad } from '@/components/LazyLoad';
 import projectCrm from '@/assets/project-crm.jpg';
 import projectApi from '@/assets/project-api.jpg';
 import projectAutomation from '@/assets/project-automation.jpg';
@@ -83,11 +85,15 @@ const PortfolioSection = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 px-6 relative overflow-hidden">
+    <section 
+      id="portfolio" 
+      className="py-20 px-6 relative overflow-hidden"
+      aria-labelledby="portfolio-heading"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Background Elements */}
-        <div className="absolute top-20 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        {/* Background Elements - Decorative only */}
+        <div className="absolute top-20 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
 
         {/* Header */}
         <div className="text-center mb-16">
@@ -104,33 +110,47 @@ const PortfolioSection = () => {
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
                   activeFilter === filter.id
                     ? 'bg-primary text-primary-foreground shadow-elegant'
                     : 'bg-card/50 text-muted-foreground hover:bg-card hover:text-card-foreground border border-primary/20'
                 }`}
+                role="tab"
+                aria-selected={activeFilter === filter.id}
+                aria-controls="projects-grid"
+                type="button"
               >
                 {filter.label}
               </button>
             ))}
-          </div>
-        </div>
+          </nav>
+        </header>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div 
+          id="projects-grid"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" 
+          role="tabpanel"
+          aria-label={`Projetos da categoria ${filters.find(f => f.id === activeFilter)?.label}`}
+        >
           {filteredProjects.map((project, index) => (
-            <div 
+            <article 
               key={project.id}
               className="card-project"
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <figure className="relative overflow-hidden">
+                <LazyLoad height={192} offset={200}>
+                  <ContentImage 
+                    src={project.image}
+                    alt={`Screenshot do projeto ${project.title}`}
+                    width={400}
+                    height={192}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    quality={80}
+                  />
+                </LazyLoad>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                 
                 {/* Action Buttons */}
                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -149,29 +169,32 @@ const PortfolioSection = () => {
                     <Github className="w-4 h-4" />
                   </Button>
                 </div>
-              </div>
+              </figure>
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-card-foreground mb-3 group-hover:text-gradient transition-all duration-300">
-                  {project.title}
-                </h3>
+                <header>
+                  <h3 className="text-xl font-bold text-card-foreground mb-3 group-hover:text-gradient transition-all duration-300">
+                    {project.title}
+                  </h3>
+                </header>
                 
                 <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                   {project.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <ul className="flex flex-wrap gap-2 mb-6" role="list" aria-label={`Tecnologias utilizadas no projeto ${project.title}`}>
                   {project.tags.map((tag) => (
-                    <span 
+                    <li 
                       key={tag}
                       className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20"
+                      role="listitem"
                     >
                       {tag}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
                 {/* Action Buttons Mobile */}
                 <div className="flex gap-3 md:hidden">
@@ -181,6 +204,22 @@ const PortfolioSection = () => {
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
+=======
+                <nav className="flex gap-3 md:hidden" aria-label={`Ações para o projeto ${project.title}`}>
+                  <Button 
+                    size="sm" 
+                    className="btn-ghost flex-1"
+                    aria-label={`Ver demo do projeto ${project.title}`}
+                    onClick={() => {
+                      if (project.demoUrl && project.demoUrl !== '#') {
+                        window.open(project.demoUrl, '_blank', 'noopener,noreferrer');
+                      } else {
+                        window.location.href = '/portfolio';
+                      }
+                    }}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" aria-hidden="true" />
+>>>>>>> 23d5c66f73e5a04c24b30e4dfeaf2a1a78a38971
                     Demo
                   </Button>
                   <Button 
@@ -192,9 +231,9 @@ const PortfolioSection = () => {
                     <Github className="w-4 h-4 mr-2" />
                     Código
                   </Button>
-                </div>
+                </nav>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -207,6 +246,7 @@ const PortfolioSection = () => {
             <p className="text-muted-foreground mb-6">
               Estes são apenas alguns exemplos do meu trabalho. Vamos criar algo incrível juntos!
             </p>
+<<<<<<< HEAD
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 className="btn-hero"
@@ -214,6 +254,7 @@ const PortfolioSection = () => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
+>>>>>>> 23d5c66f73e5a04c24b30e4dfeaf2a1a78a38971
               >
                 Ver Mais Projetos
               </Button>
