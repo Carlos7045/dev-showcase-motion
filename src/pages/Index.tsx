@@ -4,6 +4,7 @@ import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import ContactSection from '@/components/ContactSection';
+import BeamsSection from '@/components/BeamsSection';
 import Footer from '@/components/Footer';
 import ScrollTechLogos from '@/components/ScrollTechLogos';
 
@@ -49,6 +50,7 @@ const Index = () => {
       <ServicesSection />
       <PortfolioSection />
       <ContactSection />
+      <BeamsSection />
       <Footer />
     </div>
   );

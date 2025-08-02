@@ -1,5 +1,7 @@
 import { Mail, MessageCircle, Send, MapPin, Phone, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { GlowCard } from '@/components/ui/GlowCard';
+import { MouseFollowSocials } from '@/components/ui/MouseFollowSocials';
 
 const ContactSection = () => {
   const contactMethods = [
@@ -32,11 +34,7 @@ const ContactSection = () => {
     }
   ];
 
-  const socialLinks = [
-    { icon: Github, url: 'https://github.com/carlos7045', label: 'GitHub' },
-    { icon: Linkedin, url: 'https://linkedin.com/in/carlos-henrique-salgado-8b8b8b8b8', label: 'LinkedIn' },
-    { icon: Mail, url: 'mailto:salgadocarloshenrique@gmail.com', label: 'E-mail' }
-  ];
+
 
   return (
     <section id="contact" className="py-20 px-6 relative overflow-hidden">
@@ -79,21 +77,8 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-card/50 border border-primary/20 rounded-xl flex items-center justify-center hover:border-primary/40 hover:bg-card transition-all duration-300 hover:scale-110"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300" />
-                </a>
-              ))}
-            </div>
+            {/* Social Links with Mouse Follow Animation */}
+            <MouseFollowSocials />
           </div>
 
           {/* Right Side - Contact Methods */}
@@ -144,24 +129,30 @@ const ContactSection = () => {
 
             {/* Call to Action */}
             <div className="mt-12 text-center">
-              <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-gradient mb-4">
-                  Pronto para Começar?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Não importa o tamanho do seu projeto. Vamos conversar e encontrar a melhor solução para você.
-                </p>
-                <Button 
-                  className="btn-accent hover:scale-105 transition-transform duration-300"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank');
-                  }}
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Iniciar Conversa
-                </Button>
-              </div>
+              <GlowCard 
+                customSize={true} 
+                glowColor="green" 
+                className="w-full h-auto aspect-auto bg-gradient-to-r from-card/50 to-muted/30"
+              >
+                <div className="p-4">
+                  <h3 className="text-2xl font-bold text-gradient mb-4">
+                    Pronto para Começar?
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    Não importa o tamanho do seu projeto. Vamos conversar e encontrar a melhor solução para você.
+                  </p>
+                  <Button 
+                    className="btn-accent hover:scale-105 transition-transform duration-300"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank');
+                    }}
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Iniciar Conversa
+                  </Button>
+                </div>
+              </GlowCard>
             </div>
           </div>
         </div>

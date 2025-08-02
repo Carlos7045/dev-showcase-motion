@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { GlowCard } from '@/components/ui/GlowCard';
 // Imports temporariamente comentados até os componentes serem criados
 // import { ContentImage } from '@/components/OptimizedImage';
 // import { LazyLoad } from '@/components/LazyLoad';
@@ -219,30 +220,38 @@ const PortfolioSection = () => {
 
         {/* More Projects CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gradient mb-4">
-              Gostou do Que Viu?
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Estes são apenas alguns exemplos do meu trabalho. Vamos criar algo incrível juntos!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="btn-hero"
-                onClick={() => {
-                  const contactSection = document.getElementById('contact');
-                  contactSection?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Ver Mais Projetos
-              </Button>
-              <Button 
-                className="btn-ghost"
-                onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
-              >
-                Solicitar Orçamento
-              </Button>
-            </div>
+          <div className="max-w-2xl mx-auto">
+            <GlowCard 
+              customSize={true} 
+              glowColor="blue" 
+              className="w-full h-auto aspect-auto bg-gradient-to-r from-card/50 to-muted/30"
+            >
+              <div className="p-4">
+                <h3 className="text-2xl font-bold text-gradient mb-4">
+                  Gostou do Que Viu?
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Estes são apenas alguns exemplos do meu trabalho. Vamos criar algo incrível juntos!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    className="btn-hero"
+                    onClick={() => {
+                      const contactSection = document.getElementById('contact');
+                      contactSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    Ver Mais Projetos
+                  </Button>
+                  <Button 
+                    className="btn-ghost"
+                    onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
+                  >
+                    Solicitar Orçamento
+                  </Button>
+                </div>
+              </div>
+            </GlowCard>
           </div>
         </div>
       </div>

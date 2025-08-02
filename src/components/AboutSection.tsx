@@ -1,5 +1,6 @@
 import { Code2, Database, Zap, Users, Brain, Target } from 'lucide-react';
 import avatar from '@/assets/avatar.png';
+import { GlareCard } from '@/components/ui/GlareCard';
 
 const AboutSection = () => {
 
@@ -58,52 +59,54 @@ const AboutSection = () => {
               {/* Animated Background Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-2xl blur-2xl opacity-20" />
 
-              {/* Main Card */}
-              <div className="relative bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 backdrop-blur-sm border-2 border-primary/20 overflow-hidden hover:border-primary/40 transition-all duration-500">
-                {/* Subtle Border Lines */}
-                <div className="absolute inset-0 rounded-2xl">
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-70" />
-                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-70" />
-                  <div className="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-transparent via-primary-glow/60 to-transparent opacity-70" />
-                  <div className="absolute right-0 top-0 w-0.5 h-full bg-gradient-to-b from-transparent via-primary/60 to-transparent opacity-70" />
-                </div>
-
-                {/* Photo Container - APENAS transição simples na foto */}
-                <div className="relative overflow-hidden rounded-xl mb-6">
-                  <img
-                    src={avatar}
-                    alt="Developer Avatar"
-                    className="w-full h-80 object-cover rounded-xl glow transition-all duration-700 ease-in-out hover:scale-110 hover:rotate-2 hover:brightness-110 hover:contrast-110"
-                  />
-                  {/* Subtle overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/10 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-xl" />
-                </div>
-
-                {/* Text Content */}
-                <div className="text-center relative z-10">
-                  <h3 className="text-2xl font-bold text-gradient mb-2 hover:scale-105 transition-transform duration-300">
-                    DEV: Carlos Salgado
-                  </h3>
-                  <h2 className="text-xl font-bold text-gradient mb-2 hover:text-accent transition-colors duration-300">
-                    Desenvolvedor Full-Stack
-                  </h2>
-                  <p className="text-muted-foreground hover:text-primary transition-colors duration-300">
-                    Especialista em Soluções Digitais
-                  </p>
-
-                  {/* Status Indicator */}
-                  <div className="flex items-center justify-center gap-2 mt-4">
-                    <div className="w-3 h-3 bg-green-500 rounded-full opacity-90" />
-                    <span className="text-sm text-green-500 font-medium">Disponível para projetos</span>
+              {/* Main Card with GlareCard */}
+              <GlareCard className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm overflow-hidden">
+                <div className="relative p-8 h-full">
+                  {/* Subtle Border Lines */}
+                  <div className="absolute inset-0 rounded-2xl">
+                    <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-70" />
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-70" />
+                    <div className="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-transparent via-primary-glow/60 to-transparent opacity-70" />
+                    <div className="absolute right-0 top-0 w-0.5 h-full bg-gradient-to-b from-transparent via-primary/60 to-transparent opacity-70" />
                   </div>
-                </div>
 
-                {/* Corner Decorations */}
-                <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-primary/40 rounded-tl-lg" />
-                <div className="absolute top-4 right-4 w-6 h-6 border-r-2 border-t-2 border-accent/40 rounded-tr-lg" />
-                <div className="absolute bottom-4 left-4 w-6 h-6 border-l-2 border-b-2 border-primary-glow/40 rounded-bl-lg" />
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-primary/40 rounded-br-lg" />
-              </div>
+                  {/* Photo Container - APENAS transição simples na foto */}
+                  <div className="relative overflow-hidden rounded-xl mb-6">
+                    <img
+                      src={avatar}
+                      alt="Developer Avatar"
+                      className="w-full h-80 object-cover rounded-xl glow transition-all duration-700 ease-in-out hover:scale-110 hover:rotate-2 hover:brightness-110 hover:contrast-110"
+                    />
+                    {/* Subtle overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/10 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="text-center relative z-10">
+                    <h3 className="text-2xl font-bold text-gradient mb-2 hover:scale-105 transition-transform duration-300">
+                      DEV: Carlos Salgado
+                    </h3>
+                    <h2 className="text-xl font-bold text-gradient mb-2 hover:text-accent transition-colors duration-300">
+                      Desenvolvedor Full-Stack
+                    </h2>
+                    <p className="text-muted-foreground hover:text-primary transition-colors duration-300">
+                      Especialista em Soluções Digitais
+                    </p>
+
+                    {/* Status Indicator */}
+                    <div className="flex items-center justify-center gap-2 mt-4">
+                      <div className="w-3 h-3 bg-green-500 rounded-full opacity-90" />
+                      <span className="text-sm text-green-500 font-medium">Disponível para projetos</span>
+                    </div>
+                  </div>
+
+                  {/* Corner Decorations */}
+                  <div className="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-primary/40 rounded-tl-lg" />
+                  <div className="absolute top-4 right-4 w-6 h-6 border-r-2 border-t-2 border-accent/40 rounded-tr-lg" />
+                  <div className="absolute bottom-4 left-4 w-6 h-6 border-l-2 border-b-2 border-primary-glow/40 rounded-bl-lg" />
+                  <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-primary/40 rounded-br-lg" />
+                </div>
+              </GlareCard>
             </div>
           </div>
 
@@ -162,19 +165,18 @@ const AboutSection = () => {
               <h3 id="skills-heading" className="text-2xl font-semibold mb-6 text-foreground">Diferenciais</h3>
               <div className="space-y-4" role="list">
                 {softSkills.map((skill, index) => (
-                  <div
-                    key={skill.title}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-card/30 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:bg-card/50"
-                  >
-                    <skill.icon 
-                      className="w-6 h-6 text-primary mt-1 flex-shrink-0" 
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-card-foreground mb-1">{skill.title}</h4>
-                      <p className="text-sm text-muted-foreground">{skill.description}</p>
+                  <GlareCard key={skill.title} className="bg-card/30 backdrop-blur-sm">
+                    <div className="flex items-start gap-4 p-4 h-full">
+                      <skill.icon 
+                        className="w-6 h-6 text-primary mt-1 flex-shrink-0" 
+                        aria-hidden="true"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-card-foreground mb-1">{skill.title}</h4>
+                        <p className="text-sm text-muted-foreground">{skill.description}</p>
+                      </div>
                     </div>
-                  </div>
+                  </GlareCard>
                 ))}
               </div>
             </section>

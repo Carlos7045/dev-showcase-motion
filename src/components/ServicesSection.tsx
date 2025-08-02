@@ -1,4 +1,5 @@
 import { Globe, Zap, Cog, Users } from 'lucide-react';
+import { GlowCard } from '@/components/ui/GlowCard';
 
 const ServicesSection = () => {
 
@@ -110,19 +111,27 @@ const ServicesSection = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gradient mb-4">
-              Pronto para Transformar Sua Ideia?
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Vamos conversar sobre como posso ajudar você a alcançar seus objetivos com tecnologia.
-            </p>
-            <button 
-              className="btn-accent hover:scale-105 transition-transform duration-300"
-              onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
+          <div className="max-w-2xl mx-auto">
+            <GlowCard 
+              customSize={true} 
+              glowColor="purple" 
+              className="w-full h-auto aspect-auto bg-gradient-to-r from-card/50 to-muted/30"
             >
-              Agendar Conversa
-            </button>
+              <div className="p-4">
+                <h3 className="text-2xl font-bold text-gradient mb-4">
+                  Pronto para Transformar Sua Ideia?
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Vamos conversar sobre como posso ajudar você a alcançar seus objetivos com tecnologia.
+                </p>
+                <button 
+                  className="btn-accent hover:scale-105 transition-transform duration-300"
+                  onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
+                >
+                  Agendar Conversa
+                </button>
+              </div>
+            </GlowCard>
           </div>
         </div>
       </div>
