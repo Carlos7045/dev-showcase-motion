@@ -58,8 +58,8 @@ const PortfolioSection = () => {
 
 
   return (
-    <section 
-      id="portfolio" 
+    <section
+      id="portfolio"
       className="py-20 px-6 relative overflow-hidden"
       aria-labelledby="portfolio-heading"
     >
@@ -86,7 +86,7 @@ const PortfolioSection = () => {
             <h3 className="text-2xl font-bold text-gradient mb-2">Projeto em Destaque</h3>
             <p className="text-muted-foreground">Projeto real desenvolvido e em produção</p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="card-premium group cursor-pointer" onClick={() => window.open(featuredProject.url, '_blank')}>
               {/* Live Website Preview */}
@@ -99,17 +99,17 @@ const PortfolioSection = () => {
                     loading="lazy"
                   />
                 </div>
-                
+
                 {/* Live Badge */}
                 <div className="absolute top-4 left-4 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
                   LIVE
                 </div>
-                
+
                 {/* Visit Button */}
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button 
-                    size="sm" 
+                  <Button
+                    size="sm"
                     className="bg-primary/90 text-primary-foreground hover:bg-primary backdrop-blur-sm"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
@@ -124,11 +124,11 @@ const PortfolioSection = () => {
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {featuredProject.description}
                 </p>
-                
+
                 {/* Tech Stack */}
                 <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {featuredProject.tags.map((tag) => (
-                    <span 
+                    <span
                       key={tag}
                       className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20"
                     >
@@ -136,7 +136,7 @@ const PortfolioSection = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="text-sm text-muted-foreground">
                   <span className="inline-flex items-center gap-1">
                     <div className="w-2 h-2 bg-green-500 rounded-full" />
@@ -153,12 +153,12 @@ const PortfolioSection = () => {
           <h3 className="text-2xl font-bold text-gradient mb-2">Outros Projetos</h3>
           <p className="text-muted-foreground">Exemplos de soluções desenvolvidas</p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {projects.slice(0, 3).map((project) => (
             <div key={project.id} className="card-premium group">
               <div className="relative overflow-hidden rounded-xl mb-4">
-                <img 
+                <img
                   src={project.image}
                   alt={`Preview do ${project.title}`}
                   className="w-full h-32 object-cover transition-transform duration-500 group-hover:scale-110"
@@ -186,7 +186,7 @@ const PortfolioSection = () => {
             <p className="text-muted-foreground mb-6">
               Tenho outros projetos e soluções desenvolvidas. Vamos conversar sobre como posso ajudar você!
             </p>
-            <Button 
+            <Button
               className="btn-hero"
               onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20ver%20mais%20projetos%20e%20conversar%20sobre%20uma%20solução.', '_blank')}
             >

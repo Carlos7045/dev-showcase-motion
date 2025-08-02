@@ -1,73 +1,59 @@
-# Welcome to your Lovable project
+# Carlos Salgado - Portfolio
 
-## Project info
+Portfolio pessoal de Carlos Salgado, Desenvolvedor Full-Stack especializado em React, Next.js, automações e integrações.
 
-**URL**: https://lovable.dev/projects/c8689ad5-3bc1-4c0d-87a1-8d165a7224ca
+## 🚀 Tecnologias Utilizadas
 
-## How can I edit this code?
+- **Frontend**: React 18, TypeScript, Tailwind CSS
+- **Animações**: Framer Motion
+- **UI Components**: Radix UI, Shadcn/ui
+- **Build Tool**: Vite
+- **Deploy**: Vercel
 
-There are several ways of editing your application.
+## 🎯 Funcionalidades
 
-**Use Lovable**
+- ✅ Design responsivo e moderno
+- ✅ Animações suaves e interativas
+- ✅ Seção de portfólio com projeto real em destaque
+- ✅ Preview ao vivo do projeto Comando Golgota
+- ✅ Formulário de contato integrado com WhatsApp
+- ✅ Otimizado para SEO
+- ✅ Performance otimizada
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c8689ad5-3bc1-4c0d-87a1-8d165a7224ca) and start prompting.
+## 🌟 Projeto em Destaque
 
-Changes made via Lovable will be committed automatically to this repo.
+**Comando Golgota** - Site institucional completo para igreja
+- URL: https://comando-golgota.vercel.app/
+- Tecnologias: React, Next.js, TypeScript, Tailwind CSS
+- Funcionalidades: Sistema de eventos, galeria, área de membros
 
-**Use your preferred IDE**
+## 🛠️ Como Executar Localmente
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clone o repositório
+git clone [url-do-repositorio]
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Instale as dependências
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Execute o servidor de desenvolvimento
 npm run dev
+
+# Build para produção
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 📱 Contato
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **WhatsApp**: +55 99 98487-0193
+- **LinkedIn**: [Carlos Salgado](https://linkedin.com/in/carlos-henrique-salgado-8b8b8b8b8)
+- **GitHub**: [carlos7045](https://github.com/carlos7045)
+- **Email**: salgadocarloshenrique@gmail.com
 
-**Use GitHub Codespaces**
+## 📄 Licença
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Este projeto é de uso pessoal para fins de portfólio.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c8689ad5-3bc1-4c0d-87a1-8d165a7224ca) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Desenvolvido com ❤️ por Carlos Salgado
