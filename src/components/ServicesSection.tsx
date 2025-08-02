@@ -52,7 +52,7 @@ const ServicesSection = () => {
             Ofereco soluções completas para transformar seus desafios tecnológicos 
             em oportunidades de crescimento e inovação.
           </p>
-        </header>
+        </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-8" role="list" aria-label="Lista de serviços oferecidos">
