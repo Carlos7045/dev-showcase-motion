@@ -19,15 +19,15 @@ const AboutSection = () => {
   return (
     <section 
       id="about" 
-      className="py-20 px-6 relative overflow-hidden"
+      className="py-12 sm:py-20 px-4 sm:px-6 relative overflow-hidden"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto">
         {/* Background Elements - Decorative only */}
-        <div className="absolute top-10 right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
-        <div className="absolute bottom-20 left-10 w-60 h-60 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute top-10 right-10 w-20 h-20 sm:w-40 sm:h-40 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+        <div className="absolute bottom-20 left-10 w-30 h-30 sm:w-60 sm:h-60 bg-accent/5 rounded-full blur-3xl" aria-hidden="true" />
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
           {/* Avatar Side */}
           <div className="relative">
             {/* Orbiting Particles - Ao Redor do Card */}
@@ -111,19 +111,19 @@ const AboutSection = () => {
           </div>
 
           {/* Content Side */}
-          <div>
-            <h2 className="text-section text-gradient mb-8">
+          <div className="px-2 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-space-grotesk font-semibold tracking-tight text-gradient mb-6 sm:mb-8">
               Sobre Mim
             </h2>
 
-            <div className="space-y-6 mb-12">
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
+              <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
                 Sou um desenvolvedor apaixonado por transformar ideias complexas em soluções
                 digitais elegantes e funcionais. Com foco em criar experiências que realmente
                 fazem a diferença na vida das pessoas e no crescimento dos negócios.
               </p>
 
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
                 Minha missão é democratizar a tecnologia, criando ferramentas acessíveis
                 que automatizam processos, integram sistemas e geram valor real para
                 organizações de todos os tamanhos.
@@ -131,20 +131,20 @@ const AboutSection = () => {
             </div>
 
             {/* Technologies */}
-            <section className="mb-12" aria-labelledby="technologies-heading">
-              <h3 id="technologies-heading" className="text-2xl font-semibold mb-6 text-foreground">Tecnologias Dominadas</h3>
-              <div className="grid md:grid-cols-3 gap-6" role="list">
+            <section className="mb-8 sm:mb-12" aria-labelledby="technologies-heading">
+              <h3 id="technologies-heading" className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-foreground">Tecnologias Dominadas</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6" role="list">
                 {technologies.map((tech, index) => (
                   <div
                     key={tech.name}
                     className="card-premium group"
                   >
                     <tech.icon 
-                      className="w-8 h-8 text-primary mb-4 group-hover:text-accent transition-colors duration-300" 
+                      className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-3 sm:mb-4 group-hover:text-accent transition-colors duration-300" 
                       aria-hidden="true"
                     />
-                    <h4 className="font-semibold mb-3 text-card-foreground">{tech.name}</h4>
-                    <ul className="flex flex-wrap gap-2" role="list" aria-label={`Tecnologias de ${tech.name}`}>
+                    <h4 className="font-semibold mb-2 sm:mb-3 text-card-foreground text-sm sm:text-base">{tech.name}</h4>
+                    <ul className="flex flex-wrap gap-1 sm:gap-2" role="list" aria-label={`Tecnologias de ${tech.name}`}>
                       {tech.skills.map((skill) => (
                         <span
                           key={skill}
@@ -162,18 +162,18 @@ const AboutSection = () => {
 
             {/* Soft Skills */}
             <section aria-labelledby="skills-heading">
-              <h3 id="skills-heading" className="text-2xl font-semibold mb-6 text-foreground">Diferenciais</h3>
-              <div className="space-y-4" role="list">
+              <h3 id="skills-heading" className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-foreground">Diferenciais</h3>
+              <div className="space-y-3 sm:space-y-4" role="list">
                 {softSkills.map((skill, index) => (
                   <GlareCard key={skill.title} className="bg-card/30 backdrop-blur-sm">
-                    <div className="flex items-start gap-4 p-4 h-full">
+                    <div className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 h-full">
                       <skill.icon 
-                        className="w-6 h-6 text-primary mt-1 flex-shrink-0" 
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-primary mt-1 flex-shrink-0" 
                         aria-hidden="true"
                       />
                       <div>
-                        <h4 className="font-semibold text-card-foreground mb-1">{skill.title}</h4>
-                        <p className="text-sm text-muted-foreground">{skill.description}</p>
+                        <h4 className="font-semibold text-card-foreground mb-1 text-sm sm:text-base">{skill.title}</h4>
+                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{skill.description}</p>
                       </div>
                     </div>
                   </GlareCard>

@@ -148,20 +148,20 @@
 
   /* Premium Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-8 py-4 rounded-xl font-semibold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-dramatic active:scale-95;
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-dramatic active:scale-95 text-sm sm:text-base;
   }
 
   .btn-ghost {
-    @apply bg-transparent border-2 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply bg-transparent border-2 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base;
   }
 
   .btn-accent {
-    @apply bg-gradient-to-r from-accent to-accent/80 text-accent-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-elegant;
+    @apply bg-gradient-to-r from-accent to-accent/80 text-accent-foreground px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-elegant text-sm sm:text-base;
   }
 
   /* Card Variants */
   .card-premium {
-    @apply bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 transition-all duration-500 hover:shadow-elegant hover:border-primary/40 hover:-translate-y-2;
+    @apply bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-4 sm:p-6 transition-all duration-500 hover:shadow-elegant hover:border-primary/40 hover:-translate-y-1 sm:hover:-translate-y-2;
   }
 
   .card-project {

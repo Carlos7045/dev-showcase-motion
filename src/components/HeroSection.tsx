@@ -65,59 +65,59 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary-glow/10 rounded-full blur-lg opacity-60" />
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-6xl mx-auto">
         <div>
-          <h1 className="text-hero text-gradient mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-space-grotesk font-bold leading-tight tracking-tight text-gradient mb-4 sm:mb-6">
             Transformando Ideias em
             <br />
-            <span className="block mt-4">Soluções Digitais</span>
+            <span className="block mt-2 sm:mt-4">Soluções Digitais</span>
           </h1>
           
           <div 
-            className="h-16 flex items-center justify-center mb-8"
+            className="h-12 sm:h-16 flex items-center justify-center mb-6 sm:mb-8"
             role="text"
             aria-live="polite"
             aria-label="Especialidades em rotação"
           >
-            <span className="text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground">
+            <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground text-center px-2">
               {displayText}
-              <span className="border-r-2 border-primary ml-1 inline-block h-8 opacity-80" />
+              <span className="border-r-2 border-primary ml-1 inline-block h-6 sm:h-8 opacity-80" />
             </span>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-2">
             Ajudo pessoas e empresas a crescerem através de aplicações web personalizadas, 
             automações inteligentes e integrações que simplificam processos complexos.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-2">
             <Button 
-              className="btn-hero group"
+              className="btn-hero group w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
               onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
             >
               <span className="mr-2">Vamos Conversar</span>
-              <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Button>
             
             <Button 
               variant="ghost" 
-              className="btn-ghost group"
+              className="btn-ghost group w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3"
               onClick={() => {
                 const portfolioSection = document.getElementById('portfolio');
                 portfolioSection?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <Eye className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
               <span>Ver Portfólio</span>
             </Button>
           </div>
 
           {/* Tech Stack Pills */}
-          <div className="flex flex-wrap justify-center gap-3 mt-16">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8 sm:mt-16 px-2">
             {['React', 'Next.js', 'TypeScript', 'Supabase', 'API Integration', 'Automation'].map((tech, index) => (
               <div 
                 key={tech}
-                className="px-4 py-2 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-full text-sm font-medium text-card-foreground hover:border-primary/40 transition-colors duration-300"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 bg-card/50 backdrop-blur-sm border border-primary/20 rounded-full text-xs sm:text-sm font-medium text-card-foreground hover:border-primary/40 transition-colors duration-300"
                 style={{ animationDelay: `${600 + index * 100}ms` }}
                 role="listitem"
               >
@@ -130,7 +130,7 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <button 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2"
         onClick={scrollToNext}
         aria-label="Rolar para a próxima seção"
         type="button"
@@ -138,8 +138,8 @@ const HeroSection = () => {
         <div className="scroll-indicator">
           <div className="scroll-dot" />
         </div>
-        <p className="text-sm text-muted-foreground mt-2">Scroll para descobrir</p>
-        <ChevronDown className="w-4 h-4 mx-auto mt-1 text-primary" aria-hidden="true" />
+        <p className="text-xs sm:text-sm text-muted-foreground mt-2">Scroll para descobrir</p>
+        <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 mx-auto mt-1 text-primary" aria-hidden="true" />
       </button>
     </section>
   );

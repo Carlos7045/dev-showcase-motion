@@ -1,14 +1,9 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark background with rounded corners -->
-  <rect width="32" height="32" rx="6" fill="#1f1f1f"/>
-  
-  <!-- Angle brackets - cleaner design -->
-  <path d="M9 11L6 16L9 21" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M23 11L26 16L23 21" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- CS letters - clean and bold -->
-  <text x="16" y="20.5" font-family="system-ui, -apple-system, Arial, sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#ffffff">CS</text>
-  
-  <!-- Optional: subtle inner shadow effect -->
-  <rect width="30" height="30" x="1" y="1" rx="5" fill="none" stroke="#333333" stroke-width="0.5" opacity="0.3"/>
+  <rect width="32" height="32" fill="#ffffff"/>
+  <!-- Left bracket -->
+  <path d="M6 10L10 14L6 18V16H4V12H6V10Z" fill="#000000" stroke="#000000" stroke-width="1"/>
+  <!-- Right bracket -->
+  <path d="M26 10V12H28V16H26V18L22 14L26 10Z" fill="#000000" stroke="#000000" stroke-width="1"/>
+  <!-- CS letters -->
+  <text x="16" y="19" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="8" font-weight="bold">CS</text>
 </svg>
