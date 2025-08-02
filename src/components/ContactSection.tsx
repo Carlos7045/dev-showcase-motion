@@ -1,8 +1,5 @@
 import { Mail, MessageCircle, Send, MapPin, Phone, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AnimatedSection, StaggeredList } from '@/components/AnimatedSection';
-import { TiltCard, MagneticButton } from '@/components/InteractiveElements';
-import { defaultAnimations } from '@/config/animations';
 
 const ContactSection = () => {
   const contactMethods = [
@@ -67,18 +64,7 @@ const ContactSection = () => {
               seus desafios e criar soluções que superem suas expectativas.
             </p>
 
-            <AnimatedSection animation={{ ...defaultAnimations.fadeIn, delay: 0.2 }}>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Cada grande projeto começa com uma conversa. Estou aqui para entender
-                seus desafios e criar soluções que superem suas expectativas.
-              </p>
-            </AnimatedSection>
-
-            <StaggeredList
-              animation={{ ...defaultAnimations.slideLeft, delay: 0 }}
-              staggerDelay={0.1}
-              className="space-y-6 mb-8"
-            >
+            <div className="space-y-6 mb-8">
               <div className="flex items-center gap-4 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
                 <span>Araguaina, Brasil (Atendimento Global)</span>
@@ -91,18 +77,13 @@ const ContactSection = () => {
                 <Send className="w-5 h-5 text-primary" />
                 <span>Resposta em até 24 horas</span>
               </div>
-            </StaggeredList>
+            </div>
 
             {/* Social Links */}
-            <StaggeredList
-              animation={{ ...defaultAnimations.scaleIn, delay: 0 }}
-              staggerDelay={0.1}
-              className="flex gap-4"
-            >
+            <div className="flex gap-4">
               {socialLinks.map((social) => (
-                <MagneticButton
+                <a
                   key={social.label}
-                  as="a"
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -110,9 +91,9 @@ const ContactSection = () => {
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300" />
-                </MagneticButton>
+                </a>
               ))}
-            </StaggeredList>
+            </div>
           </div>
 
           {/* Right Side - Contact Methods */}
