@@ -21,7 +21,7 @@ const BeamsSection = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Code className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-card-foreground mb-2">50+</h3>
+              <h3 className="text-2xl font-bold text-card-foreground mb-2">Varios</h3>
               <p className="text-muted-foreground">Projetos Entregues</p>
             </div>
 
@@ -37,8 +37,8 @@ const BeamsSection = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-primary-glow to-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Rocket className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-card-foreground mb-2">3+</h3>
-              <p className="text-muted-foreground">Anos de Experiência</p>
+              <h3 className="text-2xl font-bold text-card-foreground mb-2">5+</h3>
+              <p className="text-muted-foreground">Anos de estudo e prática, e agora desenvolvendo soluções reais</p>
             </div>
           </div>
 

@@ -34,7 +34,7 @@ const Footer = () => {
               Especialista em desenvolvimento web, automações e integrações.
             </p>
             <p className="text-sm text-muted-foreground">
-              📍 Araguaina, Brasil | 🌍 Atendimento Global
+              📍 Araguaina - TO, Brasil | 🌍 Atendimento Global
             </p>
           </div>
 
@@ -80,9 +80,9 @@ const Footer = () => {
 
             {/* Made with Love */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Feito com</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current opacity-90" />
-              <span>e muito</span>
+              <span>Desenvolvido por</span>
+              
+              <span>DEV: CARLOS SALGADO</span>
               <Code2 className="w-4 h-4 text-primary" />
             </div>
 

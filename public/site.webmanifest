@@ -1,0 +1,21 @@
+{
+  "name": "Carlos Salgado - Portfolio",
+  "short_name": "CS Portfolio",
+  "description": "Portfolio de Carlos Salgado - Desenvolvedor Full-Stack",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#0ea5e9",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "start_url": "/"
+}
