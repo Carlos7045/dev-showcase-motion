@@ -27,14 +27,14 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center">
                 <Code2 className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-gradient">Dev Solutions</h3>
+              <h3 className="text-xl font-bold text-gradient">Dev Carlos Salgado</h3>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md leading-relaxed">
               Transformando ideias em soluções digitais que fazem a diferença. 
               Especialista em desenvolvimento web, automações e integrações.
             </p>
             <p className="text-sm text-muted-foreground">
-              📍 São Paulo, Brasil | 🌍 Atendimento Global
+              📍 Araguaina, Brasil | 🌍 Atendimento Global
             </p>
           </div>
 
@@ -75,13 +75,13 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Dev Solutions. Todos os direitos reservados.
+              © {currentYear} Dev Carlos Salgado. Todos os direitos reservados.
             </p>
 
             {/* Made with Love */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Feito com</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
+              <Heart className="w-4 h-4 text-red-500 fill-current opacity-90" />
               <span>e muito</span>
               <Code2 className="w-4 h-4 text-primary" />
             </div>

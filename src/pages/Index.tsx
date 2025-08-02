@@ -5,6 +5,7 @@ import ServicesSection from '@/components/ServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import ScrollTechLogos from '@/components/ScrollTechLogos';
 
 const Index = () => {
   useEffect(() => {
@@ -38,7 +39,11 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Animated Tech Logos */}
+      <ScrollTechLogos />
+      
+      {/* Main Content */}
       <HeroSection />
       <AboutSection />
       <ServicesSection />

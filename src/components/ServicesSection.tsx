@@ -1,24 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Globe, Zap, Cog, Users } from 'lucide-react';
 
 const ServicesSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    const element = document.getElementById('services');
-    if (element) observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
 
   const services = [
     {
@@ -39,7 +21,7 @@ const ServicesSection = () => {
       icon: Cog,
       title: 'Automações',
       description: 'Automatização de processos repetitivos para aumentar produtividade e reduzir erros humanos.',
-      features: ['Zapier & Make.com', 'Workflows Personalizados', 'Email Marketing', 'Relatórios Automáticos'],
+      features: ['n8n & Make.com', 'Workflows Personalizados', 'Email Marketing', 'Relatórios Automáticos'],
       gradient: 'from-accent/20 to-primary-glow/20'
     },
     {
@@ -59,10 +41,10 @@ const ServicesSection = () => {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-section text-gradient mb-6 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className="text-section text-gradient mb-6">
             O Que Eu Faço
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ofereco soluções completas para transformar seus desafios tecnológicos 
             em oportunidades de crescimento e inovação.
           </p>
@@ -73,8 +55,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div 
               key={service.title}
-              className={`group relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-              style={{ animationDelay: `${400 + index * 200}ms` }}
+              className="group relative"
             >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -121,7 +102,7 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '1200ms' }}>
+        <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gradient mb-4">
               Pronto para Transformar Sua Ideia?
@@ -129,7 +110,10 @@ const ServicesSection = () => {
             <p className="text-muted-foreground mb-6">
               Vamos conversar sobre como posso ajudar você a alcançar seus objetivos com tecnologia.
             </p>
-            <button className="btn-accent hover:scale-105 transition-transform duration-300">
+            <button 
+              className="btn-accent hover:scale-105 transition-transform duration-300"
+              onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
+            >
               Agendar Conversa
             </button>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import projectCrm from '@/assets/project-crm.jpg';
@@ -6,24 +6,7 @@ import projectApi from '@/assets/project-api.jpg';
 import projectAutomation from '@/assets/project-automation.jpg';
 
 const PortfolioSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    const element = document.getElementById('portfolio');
-    if (element) observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
 
   const projects = [
     {
@@ -108,15 +91,15 @@ const PortfolioSection = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-section text-gradient mb-6 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className="text-section text-gradient mb-6">
             Portfólio
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12">
             Projetos que demonstram minha capacidade de transformar ideias em soluções digitais funcionais e escaláveis.
           </p>
 
           {/* Filter Tabs */}
-          <div className={`flex flex-wrap justify-center gap-4 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
+          <div className="flex flex-wrap justify-center gap-4">
             {filters.map((filter) => (
               <button
                 key={filter.id}
@@ -138,8 +121,7 @@ const PortfolioSection = () => {
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id}
-              className={`card-project ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-              style={{ animationDelay: `${600 + index * 150}ms` }}
+              className="card-project"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
@@ -152,10 +134,18 @@ const PortfolioSection = () => {
                 
                 {/* Action Buttons */}
                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="sm" className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm">
+                  <Button 
+                    size="sm" 
+                    className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm"
+                    onClick={() => window.open(project.demoUrl, '_blank')}
+                  >
                     <ExternalLink className="w-4 h-4" />
                   </Button>
-                  <Button size="sm" className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm">
+                  <Button 
+                    size="sm" 
+                    className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm"
+                    onClick={() => window.open(project.githubUrl, '_blank')}
+                  >
                     <Github className="w-4 h-4" />
                   </Button>
                 </div>
@@ -185,11 +175,20 @@ const PortfolioSection = () => {
 
                 {/* Action Buttons Mobile */}
                 <div className="flex gap-3 md:hidden">
-                  <Button size="sm" className="btn-ghost flex-1">
+                  <Button 
+                    size="sm" 
+                    className="btn-ghost flex-1"
+                    onClick={() => window.open(project.demoUrl, '_blank')}
+                  >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Demo
                   </Button>
-                  <Button size="sm" variant="outline" className="flex-1">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="flex-1"
+                    onClick={() => window.open(project.githubUrl, '_blank')}
+                  >
                     <Github className="w-4 h-4 mr-2" />
                     Código
                   </Button>
@@ -200,7 +199,7 @@ const PortfolioSection = () => {
         </div>
 
         {/* More Projects CTA */}
-        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '1000ms' }}>
+        <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gradient mb-4">
               Gostou do Que Viu?
@@ -209,10 +208,19 @@ const PortfolioSection = () => {
               Estes são apenas alguns exemplos do meu trabalho. Vamos criar algo incrível juntos!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="btn-hero">
+              <Button 
+                className="btn-hero"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  contactSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Ver Mais Projetos
               </Button>
-              <Button className="btn-ghost">
+              <Button 
+                className="btn-ghost"
+                onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
+              >
                 Solicitar Orçamento
               </Button>
             </div>
