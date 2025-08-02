@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ContentImage } from '@/components/OptimizedImage';
-import { LazyLoad } from '@/components/LazyLoad';
-import projectCrm from '@/assets/project-crm.jpg';
-import projectApi from '@/assets/project-api.jpg';
-import projectAutomation from '@/assets/project-automation.jpg';
+// Imports temporariamente comentados até os componentes serem criados
+// import { ContentImage } from '@/components/OptimizedImage';
+// import { LazyLoad } from '@/components/LazyLoad';
+// import projectCrm from '@/assets/project-crm.jpg';
+// import projectApi from '@/assets/project-api.jpg';
+// import projectAutomation from '@/assets/project-automation.jpg';
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -15,7 +16,7 @@ const PortfolioSection = () => {
       id: 1,
       title: 'Sistema CRM Inteligente',
       description: 'Plataforma completa de gestão de relacionamento com clientes, incluindo automações de email e relatórios avançados.',
-      image: projectCrm,
+      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=CRM+System',
       tags: ['React', 'Node.js', 'PostgreSQL', 'API'],
       category: 'web',
       demoUrl: '#',
@@ -25,7 +26,7 @@ const PortfolioSection = () => {
       id: 2,
       title: 'Hub de Integrações API',
       description: 'Sistema centralizado para conectar múltiplas APIs e serviços, facilitando a sincronização de dados entre plataformas.',
-      image: projectApi,
+      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=API+Hub',
       tags: ['Next.js', 'TypeScript', 'Webhooks', 'REST API'],
       category: 'api',
       demoUrl: '#',
@@ -35,7 +36,7 @@ const PortfolioSection = () => {
       id: 3,
       title: 'Automação de Processos',
       description: 'Solução SaaS para automatizar workflows empresariais, desde aprovações até geração de relatórios.',
-      image: projectAutomation,
+      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=Automation',
       tags: ['React', 'Supabase', 'Zapier', 'Automation'],
       category: 'automation',
       demoUrl: '#',
@@ -45,7 +46,7 @@ const PortfolioSection = () => {
       id: 4,
       title: 'E-commerce Personalizado',
       description: 'Loja virtual completa com sistema de pagamentos, gestão de estoque e painel administrativo.',
-      image: projectCrm,
+      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=E-commerce',
       tags: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
       category: 'web',
       demoUrl: '#',
@@ -55,7 +56,7 @@ const PortfolioSection = () => {
       id: 5,
       title: 'Dashboard Analytics',
       description: 'Painel interativo para visualização de dados empresariais com gráficos em tempo real e relatórios customizados.',
-      image: projectApi,
+      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=Analytics',
       tags: ['React', 'D3.js', 'WebSocket', 'Charts'],
       category: 'web',
       demoUrl: '#',
@@ -65,7 +66,7 @@ const PortfolioSection = () => {
       id: 6,
       title: 'Bot de Atendimento',
       description: 'Chatbot inteligente integrado com WhatsApp e Telegram para atendimento automatizado ao cliente.',
-      image: projectAutomation,
+      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=ChatBot',
       tags: ['Node.js', 'OpenAI', 'WhatsApp API', 'NLP'],
       category: 'automation',
       demoUrl: '#',
@@ -123,8 +124,8 @@ const PortfolioSection = () => {
                 {filter.label}
               </button>
             ))}
-          </nav>
-        </header>
+          </div>
+        </div>
 
         {/* Projects Grid */}
         <div 
@@ -140,16 +141,11 @@ const PortfolioSection = () => {
             >
               {/* Project Image */}
               <figure className="relative overflow-hidden">
-                <LazyLoad height={192} offset={200}>
-                  <ContentImage 
-                    src={project.image}
-                    alt={`Screenshot do projeto ${project.title}`}
-                    width={400}
-                    height={192}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                    quality={80}
-                  />
-                </LazyLoad>
+                <img 
+                  src={project.image}
+                  alt={`Screenshot do projeto ${project.title}`}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                 
                 {/* Action Buttons */}

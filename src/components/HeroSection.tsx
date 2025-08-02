@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Download, ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { HeroImage, useImagePreload } from '@/components/OptimizedImage';
-import heroBg from '@/assets/hero-bg.jpg';
+// import { HeroImage, useImagePreload } from '@/components/OptimizedImage';
+// import heroBg from '@/assets/hero-bg.jpg';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -10,7 +10,7 @@ const HeroSection = () => {
   const [isTyping, setIsTyping] = useState(true);
   
   // Preload da imagem hero para melhor performance
-  useImagePreload(heroBg, true);
+  // useImagePreload(heroBg, true);
   
   const texts = [
     'Desenvolvedor Full-Stack',
@@ -53,18 +53,8 @@ const HeroSection = () => {
       role="banner"
       aria-label="Seção principal do site"
     >
-      {/* Background with Parallax Effect */}
+      {/* Background with Gradient */}
       <div className="absolute inset-0 z-0">
-        <HeroImage
-          src={heroBg}
-          alt="Imagem de fundo com tema tecnológico"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ backgroundAttachment: 'fixed' }}
-          priority={true}
-          quality={85}
-        />
         <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-primary/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
@@ -139,8 +129,8 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform duration-300"
+      <button 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg p-2"
         onClick={scrollToNext}
         aria-label="Rolar para a próxima seção"
         type="button"
@@ -150,7 +140,7 @@ const HeroSection = () => {
         </div>
         <p className="text-sm text-muted-foreground mt-2">Scroll para descobrir</p>
         <ChevronDown className="w-4 h-4 mx-auto mt-1 text-primary" aria-hidden="true" />
-      </div>
+      </button>
     </section>
   );
 };
