@@ -144,6 +144,14 @@ const ServicesSection = () => {
               className="btn-accent hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
               aria-label="Agendar conversa sobre projeto"
               type="button"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/contato';
+                }
+              }}
             >
               Agendar Conversa
             </button>

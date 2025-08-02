@@ -27,7 +27,7 @@ const ContactSectionSimple = () => {
       title: 'WhatsApp',
       subtitle: 'Resposta Rápida',
       action: 'Enviar Mensagem',
-      link: 'https://wa.me/5511999999999',
+      link: 'https://wa.me/5599984870193',
       gradient: 'from-green-500 to-green-600',
       iconBg: 'bg-green-100 dark:bg-green-900/30',
       iconColor: 'text-green-600 dark:text-green-400'
@@ -180,7 +180,10 @@ const ContactSectionSimple = () => {
                 <p className="text-muted-foreground mb-6">
                   Não importa o tamanho do seu projeto. Vamos conversar e encontrar a melhor solução para você.
                 </p>
-                <Button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <Button 
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  onClick={() => window.location.href = '/contato'}
+                >
                   <MessageCircle className="w-5 h-5" />
                   Iniciar Conversa
                 </Button>

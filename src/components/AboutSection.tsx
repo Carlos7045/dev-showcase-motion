@@ -25,7 +25,7 @@ const AboutSection = () => {
   const technologies = [
     { icon: Code2, name: 'Frontend', skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
     { icon: Database, name: 'Backend', skills: ['Node.js', 'Supabase', 'PostgreSQL', 'REST APIs'] },
-    { icon: Zap, name: 'Automação', skills: ['Zapier', 'Make.com', 'Webhooks', 'Integrations'] }
+    { icon: Zap, name: 'Automação', skills: ['N8N', 'Make.com', 'Webhooks', 'Integrations'] }
   ];
 
   const softSkills = [
@@ -61,6 +61,7 @@ const AboutSection = () => {
                 />
                 <figcaption className="text-center">
                   <h3 className="text-2xl font-bold text-gradient mb-2">Desenvolvedor Full-Stack</h3>
+                  <h3 className="text-2xl font-bold text-gradient mb-2">Carlos Salgado</h3>
                   <p className="text-muted-foreground">Especialista em Soluções Digitais</p>
                 </figcaption>
               </figure>

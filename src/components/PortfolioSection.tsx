@@ -184,6 +184,14 @@ const PortfolioSection = () => {
                     size="sm" 
                     className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm"
                     aria-label={`Ver demo do projeto ${project.title}`}
+                    onClick={() => {
+                      if (project.demoUrl && project.demoUrl !== '#') {
+                        window.open(project.demoUrl, '_blank', 'noopener,noreferrer');
+                      } else {
+                        // Redirecionar para página de portfolio com mais detalhes
+                        window.location.href = '/portfolio';
+                      }
+                    }}
                   >
                     <ExternalLink className="w-4 h-4" aria-hidden="true" />
                   </Button>
@@ -191,6 +199,14 @@ const PortfolioSection = () => {
                     size="sm" 
                     className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm"
                     aria-label={`Ver código fonte do projeto ${project.title}`}
+                    onClick={() => {
+                      if (project.githubUrl && project.githubUrl !== '#') {
+                        window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+                      } else {
+                        // Mostrar mensagem ou redirecionar para contato
+                        alert('Este projeto é privado. Entre em contato para mais informações.');
+                      }
+                    }}
                   >
                     <Github className="w-4 h-4" aria-hidden="true" />
                   </Button>
@@ -228,6 +244,13 @@ const PortfolioSection = () => {
                     size="sm" 
                     className="btn-ghost flex-1"
                     aria-label={`Ver demo do projeto ${project.title}`}
+                    onClick={() => {
+                      if (project.demoUrl && project.demoUrl !== '#') {
+                        window.open(project.demoUrl, '_blank', 'noopener,noreferrer');
+                      } else {
+                        window.location.href = '/portfolio';
+                      }
+                    }}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" aria-hidden="true" />
                     Demo
@@ -237,6 +260,13 @@ const PortfolioSection = () => {
                     variant="outline" 
                     className="flex-1"
                     aria-label={`Ver código fonte do projeto ${project.title}`}
+                    onClick={() => {
+                      if (project.githubUrl && project.githubUrl !== '#') {
+                        window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+                      } else {
+                        alert('Este projeto é privado. Entre em contato para mais informações.');
+                      }
+                    }}
                   >
                     <Github className="w-4 h-4 mr-2" aria-hidden="true" />
                     Código
@@ -260,12 +290,21 @@ const PortfolioSection = () => {
               <Button 
                 className="btn-hero"
                 aria-label="Ver mais projetos do portfólio"
+                onClick={() => window.location.href = '/portfolio'}
               >
                 Ver Mais Projetos
               </Button>
               <Button 
                 className="btn-ghost"
                 aria-label="Solicitar orçamento para novo projeto"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/contato';
+                  }
+                }}
               >
                 Solicitar Orçamento
               </Button>

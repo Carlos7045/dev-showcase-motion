@@ -40,17 +40,11 @@ export const LazyPages = {
     )
   ),
   
-  // Blog (quando implementado)
-  Blog: createLazyComponent(() => 
-    import('@/pages/Blog').catch(() => 
-      import('@/pages/NotFound')
-    )
-  ),
-  BlogPost: createLazyComponent(() => 
-    import('@/pages/BlogPost').catch(() => 
-      import('@/pages/NotFound')
-    )
-  ),
+  // Blog
+  Blog: createLazyComponent(() => import('@/pages/Blog')),
+  BlogPost: createLazyComponent(() => import('@/pages/BlogPost')),
+  BlogCategory: createLazyComponent(() => import('@/pages/BlogCategory')),
+  BlogTag: createLazyComponent(() => import('@/pages/BlogTag')),
   
   // Portfolio detalhado (quando implementado)
   Portfolio: createLazyComponent(() => 

@@ -10,14 +10,14 @@ interface AnimatedSectionProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export const AnimatedSection = forwardRef<HTMLElement, AnimatedSectionProps>(({ 
-  children, 
-  animation, 
+export const AnimatedSection = forwardRef<HTMLElement, AnimatedSectionProps>(({
+  children,
+  animation,
   className = "",
   as = "div"
 }, forwardedRef) => {
   const { ref, variants, animate } = useScrollAnimation(animation);
-  
+
   const MotionComponent = motion[as] as any;
 
   return (
@@ -45,20 +45,20 @@ interface StaggeredListProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export const StaggeredList = ({ 
-  children, 
-  animation, 
+export const StaggeredList = ({
+  children,
+  animation,
   staggerDelay = 0.1,
   className = "",
   itemClassName = "",
   as = "div"
 }: StaggeredListProps) => {
-  const { 
-    containerRef, 
-    setItemRef, 
-    containerVariants, 
-    itemVariants, 
-    containerAnimate 
+  const {
+    containerRef,
+    setItemRef,
+    containerVariants,
+    itemVariants,
+    containerAnimate
   } = useStaggerAnimation(children.length, animation, staggerDelay);
 
   const MotionContainer = motion[as] as any;
@@ -93,9 +93,9 @@ interface ParallaxSectionProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export const ParallaxSection = ({ 
-  children, 
-  speed = 0.5, 
+export const ParallaxSection = ({
+  children,
+  speed = 0.5,
   className = "",
   as = "div"
 }: ParallaxSectionProps) => {
@@ -123,20 +123,20 @@ interface AnimatedGridProps {
   itemClassName?: string;
 }
 
-export const AnimatedGrid = ({ 
-  children, 
-  animation, 
+export const AnimatedGrid = ({
+  children,
+  animation,
   staggerDelay = 0.05,
   columns = 3,
   className = "",
   itemClassName = ""
 }: AnimatedGridProps) => {
-  const { 
-    containerRef, 
-    setItemRef, 
-    containerVariants, 
-    itemVariants, 
-    containerAnimate 
+  const {
+    containerRef,
+    setItemRef,
+    containerVariants,
+    itemVariants,
+    containerAnimate
   } = useStaggerAnimation(children.length, animation, staggerDelay);
 
   return (

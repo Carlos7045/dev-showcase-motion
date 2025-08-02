@@ -104,6 +104,14 @@ const HeroSection = () => {
             <Button 
               className="btn-hero group"
               aria-label="Iniciar conversa sobre projeto"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/contato';
+                }
+              }}
             >
               <span className="mr-2">Vamos Conversar</span>
               <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
@@ -113,6 +121,15 @@ const HeroSection = () => {
               variant="ghost" 
               className="btn-ghost group"
               aria-label="Baixar currículo em PDF"
+              onClick={() => {
+                // Criar um link temporário para download
+                const link = document.createElement('a');
+                link.href = '/cv.pdf'; // Você precisará adicionar o arquivo CV na pasta public
+                link.download = 'CV-Desenvolvedor-FullStack.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
             >
               <Download className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform" aria-hidden="true" />
               <span>Download CV</span>

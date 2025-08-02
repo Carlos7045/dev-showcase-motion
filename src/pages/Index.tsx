@@ -25,7 +25,7 @@ const Index = () => {
     const handleScroll = () => {
       const scrolled = window.pageYOffset;
       const parallaxElements = document.querySelectorAll('[data-parallax]');
-      
+
       parallaxElements.forEach((element) => {
         const speed = parseFloat(element.getAttribute('data-parallax') || '0.5');
         const yPos = -(scrolled * speed);

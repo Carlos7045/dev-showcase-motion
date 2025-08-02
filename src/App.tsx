@@ -47,6 +47,8 @@ const App = () => {
                     
                     {/* Blog */}
                     <Route path="/blog" element={<LazyPages.Blog />} />
+                    <Route path="/blog/categoria/:categorySlug" element={<LazyPages.BlogCategory />} />
+                    <Route path="/blog/tag/:tagSlug" element={<LazyPages.BlogTag />} />
                     <Route path="/blog/:slug" element={<LazyPages.BlogPost />} />
                     
                     {/* Portfolio */}
