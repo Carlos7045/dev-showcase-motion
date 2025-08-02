@@ -6,6 +6,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import custom utilities and mixins */
+@import './styles/utilities.css';
+@import './styles/mixins.css';
+@import './styles/optimizations.css';
+
 /* Premium Portfolio Design System */
 
 @layer base {

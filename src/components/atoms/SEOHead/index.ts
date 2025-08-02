@@ -1,0 +1,1 @@
+/**\n * SEOHead - Barrel export\n */\n\nexport { \n  SEOHead,\n  usePageSEO,\n  useArticleSEO,\n  useProductSEO,\n  usePersonSEO,\n  useOrganizationSEO,\n} from './SEOHead';\n\nexport type { \n  SEOProps,\n} from './SEOHead';\n\nexport { SEOHead as default } from './SEOHead';"

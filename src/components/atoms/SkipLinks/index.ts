@@ -1,0 +1,1 @@
+/**\n * SkipLinks - Barrel export\n */\n\nexport { \n  SkipLinks,\n  SkipLinksProvider,\n  SkipTarget,\n  useSkipLinks,\n  useSkipLinksShortcuts,\n  DEFAULT_SKIP_LINKS,\n} from './SkipLinks';\n\nexport type { \n  SkipLinksProps,\n  SkipLink,\n} from './SkipLinks';\n\nexport { SkipLinks as default } from './SkipLinks';"

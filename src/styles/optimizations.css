@@ -1,0 +1,421 @@
+/**
+ * CSS Optimizations - Otimizações de performance e seletores
+ * Configurações para melhor performance de CSS
+ */
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* Otimizações de rendering */
+* {
+  box-sizing: border-box;
+}
+
+/* Otimizar fontes */
+html {
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Otimizar imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+
+/* Otimizar vídeos */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === WILL-CHANGE OPTIMIZATIONS === */
+
+/* Elementos que frequentemente mudam */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-scroll {
+  will-change: scroll-position;
+}
+
+.will-change-contents {
+  will-change: contents;
+}
+
+/* Remover will-change após animação */
+.animation-finished {
+  will-change: auto;
+}
+
+/* === CONTAIN OPTIMIZATIONS === */
+
+/* Layout containment para componentes isolados */
+.contain-layout {
+  contain: layout;
+}
+
+.contain-style {
+  contain: style;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-size {
+  contain: size;
+}
+
+.contain-strict {
+  contain: strict;
+}
+
+/* === LAYER OPTIMIZATIONS === */
+
+/* Forçar layers de composição para elementos animados */
+.force-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* === SCROLL OPTIMIZATIONS === */
+
+/* Otimizar scroll */
+.scroll-optimized {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Passive scroll listeners */
+.passive-scroll {
+  touch-action: pan-y;
+}
+
+/* === SELECTOR OPTIMIZATIONS === */
+
+/* Evitar seletores custosos - usar classes específicas */
+
+/* ❌ Evitar: */
+/* * + * { margin-top: 1rem; } */
+/* div > div > div { ... } */
+/* [class*="btn"] { ... } */
+
+/* ✅ Usar: */
+.stack > * + * {
+  margin-top: 1rem;
+}
+
+.nested-component {
+  /* Estilos específicos */
+}
+
+.btn-variant {
+  /* Estilos específicos */
+}
+
+/* === CRITICAL CSS INLINING === */
+
+/* Estilos críticos que devem ser inlined */
+.critical-above-fold {
+  /* Estilos para conteúdo above-the-fold */
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+}
+
+/* === REDUCED MOTION OPTIMIZATIONS === */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Desabilitar animações para usuários que preferem movimento reduzido */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Manter animações essenciais mas reduzidas */
+  .essential-animation {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+}
+
+/* === PRINT OPTIMIZATIONS === */
+
+@media print {
+  /* Otimizações para impressão */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .print-break-before {
+    page-break-before: always;
+  }
+  
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+  
+  .print-hidden {
+    display: none !important;
+  }
+}
+
+/* === DARK MODE OPTIMIZATIONS === */
+
+/* Otimizar transições de tema */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Evitar flash durante mudança de tema */
+@media (prefers-color-scheme: dark) {
+  .theme-aware {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .theme-aware {
+    color-scheme: light;
+  }
+}
+
+/* === CONTAINER QUERIES OPTIMIZATIONS === */
+
+/* Usar container queries quando disponível */
+@supports (container-type: inline-size) {
+  .container-query-enabled {
+    container-type: inline-size;
+  }
+  
+  @container (min-width: 400px) {
+    .responsive-component {
+      /* Estilos para container maior */
+    }
+  }
+}
+
+/* === MODERN CSS FEATURES === */
+
+/* Usar features modernas com fallbacks */
+.modern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 1rem;
+}
+
+.modern-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Logical properties */
+.logical-spacing {
+  margin-block: 1rem;
+  margin-inline: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+}
+
+/* === FONT LOADING OPTIMIZATIONS === */
+
+/* Otimizar carregamento de fontes */
+@font-face {
+  font-family: 'OptimizedFont';
+  src: url('/fonts/font.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Preload critical fonts */
+.font-preload {
+  font-family: 'OptimizedFont', system-ui, sans-serif;
+}
+
+/* === ANIMATION OPTIMIZATIONS === */
+
+/* Otimizar animações */
+.optimized-animation {
+  animation-fill-mode: both;
+  animation-play-state: running;
+}
+
+/* Pausar animações quando fora da viewport */
+.pause-when-hidden {
+  animation-play-state: paused;
+}
+
+.pause-when-hidden.in-viewport {
+  animation-play-state: running;
+}
+
+/* === MEMORY OPTIMIZATIONS === */
+
+/* Limpar recursos após uso */
+.cleanup-after-animation {
+  animation-fill-mode: forwards;
+}
+
+.cleanup-after-animation.animation-complete {
+  animation: none;
+  transform: none;
+  opacity: 1;
+}
+
+/* === SPECIFICITY OPTIMIZATIONS === */
+
+/* Manter especificidade baixa e consistente */
+
+/* Nível 1: Elementos base */
+.base-element {
+  /* Estilos base */
+}
+
+/* Nível 2: Componentes */
+.component {
+  /* Estilos de componente */
+}
+
+/* Nível 3: Variantes */
+.component--variant {
+  /* Variações do componente */
+}
+
+/* Nível 4: Estados */
+.component.is-active {
+  /* Estados do componente */
+}
+
+/* Nível 5: Utilitários (mais alta especificidade) */
+.utility-class {
+  /* Utilitários que devem sobrescrever */
+}
+
+/* === CRITICAL RENDERING PATH === */
+
+/* Otimizar o caminho crítico de renderização */
+.above-fold {
+  /* Conteúdo crítico above-the-fold */
+  contain: layout style paint;
+}
+
+.below-fold {
+  /* Conteúdo que pode ser carregado depois */
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* === BROWSER-SPECIFIC OPTIMIZATIONS === */
+
+/* Safari optimizations */
+@supports (-webkit-backdrop-filter: blur(10px)) {
+  .safari-backdrop {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Firefox optimizations */
+@-moz-document url-prefix() {
+  .firefox-specific {
+    /* Firefox-specific styles */
+  }
+}
+
+/* Chrome optimizations */
+@supports (background: paint(worklet)) {
+  .chrome-paint-api {
+    /* Chrome Paint API styles */
+  }
+}
+
+/* === PERFORMANCE MONITORING === */
+
+/* Classes para monitoramento de performance */
+.perf-critical {
+  /* Elementos críticos para performance */
+}
+
+.perf-monitor {
+  /* Elementos que devem ser monitorados */
+}
+
+.perf-lazy {
+  /* Elementos que podem ser carregados lazy */
+  content-visibility: auto;
+}
+
+/* === CSS CUSTOM PROPERTIES OPTIMIZATIONS === */
+
+/* Otimizar custom properties */
+:root {
+  /* Propriedades que mudam frequentemente */
+  --dynamic-color: hsl(var(--primary));
+  --dynamic-size: 1rem;
+}
+
+.dynamic-element {
+  color: var(--dynamic-color);
+  font-size: var(--dynamic-size);
+}
+
+/* === LAYOUT SHIFT PREVENTION === */
+
+/* Prevenir layout shifts */
+.aspect-ratio-container {
+  aspect-ratio: 16 / 9;
+}
+
+.size-placeholder {
+  min-height: 200px; /* Placeholder para conteúdo dinâmico */
+}
+
+.skeleton-loader {
+  background: linear-gradient(90deg, 
+    hsl(var(--muted)) 25%, 
+    hsl(var(--muted-foreground) / 0.1) 50%, 
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

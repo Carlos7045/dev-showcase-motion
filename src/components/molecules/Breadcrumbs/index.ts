@@ -1,0 +1,1 @@
+/**\n * Breadcrumbs - Barrel export\n */\n\nexport { \n  Breadcrumbs,\n  AutoBreadcrumbs,\n  BlogBreadcrumbs,\n  ProductBreadcrumbs,\n  useBreadcrumbs,\n} from './Breadcrumbs';\n\nexport type { \n  BreadcrumbsProps,\n  BreadcrumbItem,\n} from './Breadcrumbs';\n\nexport { Breadcrumbs as default } from './Breadcrumbs';"

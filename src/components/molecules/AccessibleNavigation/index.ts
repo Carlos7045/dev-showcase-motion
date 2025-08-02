@@ -1,0 +1,1 @@
+/**\n * AccessibleNavigation - Barrel export\n */\n\nexport { \n  AccessibleNavigation,\n  useNavigationShortcuts,\n} from './AccessibleNavigation';\n\nexport type { \n  AccessibleNavigationProps,\n  NavigationItem,\n} from './AccessibleNavigation';\n\nexport { AccessibleNavigation as default } from './AccessibleNavigation';"
