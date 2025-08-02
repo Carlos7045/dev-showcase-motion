@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
-import ContactSectionSimple from '@/components/ContactSectionSimple';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ScrollTechLogos from '@/components/ScrollTechLogos';
 
@@ -48,7 +48,7 @@ const Index = () => {
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />
-      <ContactSectionSimple />
+      <ContactSection />
       <Footer />
     </div>
   );
