@@ -204,22 +204,6 @@ const PortfolioSection = () => {
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-=======
-                <nav className="flex gap-3 md:hidden" aria-label={`Ações para o projeto ${project.title}`}>
-                  <Button 
-                    size="sm" 
-                    className="btn-ghost flex-1"
-                    aria-label={`Ver demo do projeto ${project.title}`}
-                    onClick={() => {
-                      if (project.demoUrl && project.demoUrl !== '#') {
-                        window.open(project.demoUrl, '_blank', 'noopener,noreferrer');
-                      } else {
-                        window.location.href = '/portfolio';
-                      }
-                    }}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" aria-hidden="true" />
->>>>>>> 23d5c66f73e5a04c24b30e4dfeaf2a1a78a38971
                     Demo
                   </Button>
                   <Button 
@@ -231,7 +215,7 @@ const PortfolioSection = () => {
                     <Github className="w-4 h-4 mr-2" />
                     Código
                   </Button>
-                </nav>
+                </div>
               </div>
             </article>
           ))}
@@ -246,7 +230,6 @@ const PortfolioSection = () => {
             <p className="text-muted-foreground mb-6">
               Estes são apenas alguns exemplos do meu trabalho. Vamos criar algo incrível juntos!
             </p>
-<<<<<<< HEAD
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 className="btn-hero"
@@ -254,7 +237,6 @@ const PortfolioSection = () => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
->>>>>>> 23d5c66f73e5a04c24b30e4dfeaf2a1a78a38971
               >
                 Ver Mais Projetos
               </Button>

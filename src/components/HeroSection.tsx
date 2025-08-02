@@ -136,7 +136,7 @@ const HeroSection = () => {
             ))}
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Scroll Indicator */}
       <div 
@@ -150,7 +150,7 @@ const HeroSection = () => {
         </div>
         <p className="text-sm text-muted-foreground mt-2">Scroll para descobrir</p>
         <ChevronDown className="w-4 h-4 mx-auto mt-1 text-primary" aria-hidden="true" />
-      </button>
+      </div>
     </section>
   );
 };
