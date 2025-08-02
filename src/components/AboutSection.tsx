@@ -152,7 +152,7 @@ const AboutSection = () => {
                         </span>
                       ))}
                     </ul>
-                  </article>
+                  </div>
                 ))}
               </div>
             </section>
