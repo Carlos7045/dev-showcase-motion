@@ -61,7 +61,7 @@ const AboutSection = () => {
 
               {/* Main Card with GlareCard */}
               <GlareCard className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm overflow-hidden">
-                <div className="relative p-8 h-full">
+                <div className="relative p-4 sm:p-8 h-full">
                   {/* Subtle Border Lines */}
                   <div className="absolute inset-0 rounded-2xl">
                     <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-70" />
@@ -71,11 +71,11 @@ const AboutSection = () => {
                   </div>
 
                   {/* Photo Container - APENAS transição simples na foto */}
-                  <div className="relative overflow-hidden rounded-xl mb-6">
+                  <div className="relative overflow-hidden rounded-xl mb-4 sm:mb-6">
                     <img
                       src={avatar}
                       alt="Developer Avatar"
-                      className="w-full h-80 object-cover rounded-xl glow transition-all duration-700 ease-in-out hover:scale-110 hover:rotate-2 hover:brightness-110 hover:contrast-110"
+                      className="w-full h-64 sm:h-80 object-cover object-center rounded-xl glow transition-all duration-700 ease-in-out hover:scale-110 hover:rotate-2 hover:brightness-110 hover:contrast-110"
                     />
                     {/* Subtle overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/10 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-xl" />
@@ -83,20 +83,20 @@ const AboutSection = () => {
 
                   {/* Text Content */}
                   <div className="text-center relative z-10">
-                    <h3 className="text-2xl font-bold text-gradient mb-2 hover:scale-105 transition-transform duration-300">
+                    <h3 className="text-lg sm:text-2xl font-bold text-gradient mb-2 hover:scale-105 transition-transform duration-300">
                       DEV: Carlos Salgado
                     </h3>
-                    <h2 className="text-xl font-bold text-gradient mb-2 hover:text-accent transition-colors duration-300">
+                    <h2 className="text-base sm:text-xl font-bold text-gradient mb-2 hover:text-accent transition-colors duration-300">
                       Desenvolvedor Full-Stack
                     </h2>
-                    <p className="text-muted-foreground hover:text-primary transition-colors duration-300">
+                    <p className="text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors duration-300">
                       Especialista em Soluções Digitais
                     </p>
 
                     {/* Status Indicator */}
-                    <div className="flex items-center justify-center gap-2 mt-4">
-                      <div className="w-3 h-3 bg-green-500 rounded-full opacity-90" />
-                      <span className="text-sm text-green-500 font-medium">Disponível para projetos</span>
+                    <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full opacity-90" />
+                      <span className="text-xs sm:text-sm text-green-500 font-medium">Disponível para projetos</span>
                     </div>
                   </div>
 
