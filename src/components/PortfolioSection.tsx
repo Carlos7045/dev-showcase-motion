@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react'; // Não mais necessário
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { GlowCard } from '@/components/ui/GlowCard';
@@ -10,7 +10,17 @@ import { GlowCard } from '@/components/ui/GlowCard';
 // import projectAutomation from '@/assets/project-automation.jpg';
 
 const PortfolioSection = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+
+  // Projeto principal em destaque
+  const featuredProject = {
+    id: 'featured',
+    title: 'Comando Golgota',
+    description: 'Site institucional completo para igreja, com sistema de eventos, galeria de fotos, área de membros e integração com redes sociais. Design responsivo e otimizado para performance.',
+    url: 'https://comando-golgota.vercel.app/',
+    tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    category: 'web',
+    isLive: true
+  };
 
   const projects = [
     {
@@ -42,49 +52,10 @@ const PortfolioSection = () => {
       category: 'automation',
       demoUrl: '#',
       githubUrl: '#'
-    },
-    {
-      id: 4,
-      title: 'E-commerce Personalizado',
-      description: 'Loja virtual completa com sistema de pagamentos, gestão de estoque e painel administrativo.',
-      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=E-commerce',
-      tags: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
-      category: 'web',
-      demoUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      id: 5,
-      title: 'Dashboard Analytics',
-      description: 'Painel interativo para visualização de dados empresariais com gráficos em tempo real e relatórios customizados.',
-      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=Analytics',
-      tags: ['React', 'D3.js', 'WebSocket', 'Charts'],
-      category: 'web',
-      demoUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      id: 6,
-      title: 'Bot de Atendimento',
-      description: 'Chatbot inteligente integrado com WhatsApp e Telegram para atendimento automatizado ao cliente.',
-      image: 'https://via.placeholder.com/400x192/1a1a1a/ffffff?text=ChatBot',
-      tags: ['Node.js', 'OpenAI', 'WhatsApp API', 'NLP'],
-      category: 'automation',
-      demoUrl: '#',
-      githubUrl: '#'
     }
   ];
 
-  const filters = [
-    { id: 'all', label: 'Todos os Projetos' },
-    { id: 'web', label: 'Desenvolvimento Web' },
-    { id: 'api', label: 'APIs & Integrações' },
-    { id: 'automation', label: 'Automações' }
-  ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
 
   return (
     <section 
@@ -106,152 +77,122 @@ const PortfolioSection = () => {
             Projetos que demonstram minha capacidade de transformar ideias em soluções digitais funcionais e escaláveis.
           </p>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {filters.map((filter) => (
-              <button
-                key={filter.id}
-                onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-                  activeFilter === filter.id
-                    ? 'bg-primary text-primary-foreground shadow-elegant'
-                    : 'bg-card/50 text-muted-foreground hover:bg-card hover:text-card-foreground border border-primary/20'
-                }`}
-                role="tab"
-                aria-selected={activeFilter === filter.id}
-                aria-controls="projects-grid"
-                type="button"
-              >
-                {filter.label}
-              </button>
-            ))}
+
+        </div>
+
+        {/* Featured Project - Comando Golgota */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gradient mb-2">Projeto em Destaque</h3>
+            <p className="text-muted-foreground">Projeto real desenvolvido e em produção</p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="card-premium group cursor-pointer" onClick={() => window.open(featuredProject.url, '_blank')}>
+              {/* Live Website Preview */}
+              <div className="relative overflow-hidden rounded-xl mb-6 bg-card/50">
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={featuredProject.url}
+                    className="w-full h-full border-0 rounded-xl transition-transform duration-500 group-hover:scale-105"
+                    title={`Preview do ${featuredProject.title}`}
+                    loading="lazy"
+                  />
+                </div>
+                
+                {/* Live Badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-green-500/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                  LIVE
+                </div>
+                
+                {/* Visit Button */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Button 
+                    size="sm" 
+                    className="bg-primary/90 text-primary-foreground hover:bg-primary backdrop-blur-sm"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Visitar Site
+                  </Button>
+                </div>
+              </div>
+
+              {/* Project Info */}
+              <div className="text-center">
+                <h4 className="text-2xl font-bold text-gradient mb-3">{featuredProject.title}</h4>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {featuredProject.description}
+                </p>
+                
+                {/* Tech Stack */}
+                <div className="flex flex-wrap justify-center gap-2 mb-6">
+                  {featuredProject.tags.map((tag) => (
+                    <span 
+                      key={tag}
+                      className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="text-sm text-muted-foreground">
+                  <span className="inline-flex items-center gap-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                    Site em produção e funcionando
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div 
-          id="projects-grid"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" 
-          role="tabpanel"
-          aria-label={`Projetos da categoria ${filters.find(f => f.id === activeFilter)?.label}`}
-        >
-          {filteredProjects.map((project, index) => (
-            <article 
-              key={project.id}
-              className="card-project"
-            >
-              {/* Project Image */}
-              <figure className="relative overflow-hidden">
+        {/* Other Projects Preview */}
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-gradient mb-2">Outros Projetos</h3>
+          <p className="text-muted-foreground">Exemplos de soluções desenvolvidas</p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {projects.slice(0, 3).map((project) => (
+            <div key={project.id} className="card-premium group">
+              <div className="relative overflow-hidden rounded-xl mb-4">
                 <img 
                   src={project.image}
-                  alt={`Screenshot do projeto ${project.title}`}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={`Preview do ${project.title}`}
+                  className="w-full h-32 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
-                
-                {/* Action Buttons */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button 
-                    size="sm" 
-                    className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm"
-                    onClick={() => window.open(project.demoUrl, '_blank')}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    className="bg-card/90 text-card-foreground hover:bg-card border border-primary/20 backdrop-blur-sm"
-                    onClick={() => window.open(project.githubUrl, '_blank')}
-                  >
-                    <Github className="w-4 h-4" />
-                  </Button>
-                </div>
-              </figure>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <header>
-                  <h3 className="text-xl font-bold text-card-foreground mb-3 group-hover:text-gradient transition-all duration-300">
-                    {project.title}
-                  </h3>
-                </header>
-                
-                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <ul className="flex flex-wrap gap-2 mb-6" role="list" aria-label={`Tecnologias utilizadas no projeto ${project.title}`}>
-                  {project.tags.map((tag) => (
-                    <li 
-                      key={tag}
-                      className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20"
-                      role="listitem"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Action Buttons Mobile */}
-                <div className="flex gap-3 md:hidden">
-                  <Button 
-                    size="sm" 
-                    className="btn-ghost flex-1"
-                    onClick={() => window.open(project.demoUrl, '_blank')}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="flex-1"
-                    onClick={() => window.open(project.githubUrl, '_blank')}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Código
-                  </Button>
-                </div>
               </div>
-            </article>
+              <h4 className="font-bold text-card-foreground mb-2">{project.title}</h4>
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.description}</p>
+              <div className="flex flex-wrap gap-1">
+                {project.tags.slice(0, 3).map((tag) => (
+                  <span key={tag} className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* More Projects CTA */}
-        <div className="text-center mt-16">
-          <div className="max-w-2xl mx-auto">
-            <GlowCard 
-              customSize={true} 
-              glowColor="blue" 
-              className="w-full h-auto aspect-auto bg-gradient-to-r from-card/50 to-muted/30"
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="bg-gradient-to-r from-card/50 to-muted/30 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gradient mb-4">
+              Interessado em Ver Mais?
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Tenho outros projetos e soluções desenvolvidas. Vamos conversar sobre como posso ajudar você!
+            </p>
+            <Button 
+              className="btn-hero"
+              onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20ver%20mais%20projetos%20e%20conversar%20sobre%20uma%20solução.', '_blank')}
             >
-              <div className="p-4">
-                <h3 className="text-2xl font-bold text-gradient mb-4">
-                  Gostou do Que Viu?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Estes são apenas alguns exemplos do meu trabalho. Vamos criar algo incrível juntos!
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
-                    className="btn-hero"
-                    onClick={() => {
-                      const contactSection = document.getElementById('contact');
-                      contactSection?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    Ver Mais Projetos
-                  </Button>
-                  <Button 
-                    className="btn-ghost"
-                    onClick={() => window.open('https://wa.me/5599984870193?text=Olá%20vim%20da%20sua%20pagina%20de%20desenvolvedor,%20gostaria%20de%20conversar%20com%20você%20sobre%20um%20projeto.', '_blank')}
-                  >
-                    Solicitar Orçamento
-                  </Button>
-                </div>
-              </div>
-            </GlowCard>
+              <ExternalLink className="w-5 h-5 mr-2" />
+              Ver Todos os Projetos
+            </Button>
           </div>
         </div>
       </div>
